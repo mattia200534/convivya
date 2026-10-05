@@ -1,0 +1,904 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box
+}
+
+:root {
+  --black: #080808;
+  --dark: #111;
+  --gold: #c9a45c;
+  --gold2: #e3c47d;
+  --cream: #f5f0e6;
+  --muted: #999
+}
+
+html {
+  scroll-behavior: smooth
+}
+
+body {
+  background: var(--black);
+  color: var(--cream);
+  font-family: "Montserrat", sans-serif;
+  font-weight: 300
+}
+
+a {
+  text-decoration: none;
+  color: inherit
+}
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  padding: 27px 6%;
+  transition: .4s
+}
+
+.navbar.scrolled {
+  padding: 17px 6%;
+  background: rgba(8, 8, 8, .94);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(201, 164, 92, .2)
+}
+
+.nav-container {
+  max-width: 1400px;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between
+}
+
+.logo,
+.footer-logo {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 31px;
+  font-weight: 600;
+  letter-spacing: 5px;
+  color: var(--gold)
+}
+
+.logo span,
+.footer-logo span {
+  display: block;
+  font-family: "Montserrat", sans-serif;
+  font-size: 7px;
+  letter-spacing: 3px;
+  color: #fff
+}
+
+.nav-menu {
+  display: flex;
+  gap: 36px
+}
+
+.nav-menu a {
+  font-size: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  transition: .3s
+}
+
+.nav-menu a:hover {
+  color: var(--gold)
+}
+
+.menu-toggle {
+  display: none;
+  background: none;
+  border: 0;
+  color: #fff;
+  font-size: 25px;
+  cursor: pointer
+}
+
+.hero {
+  min-height: 100vh;
+  padding: 0 9%;
+  display: flex;
+  align-items: center;
+  position: relative;
+  background: linear-gradient(90deg, rgba(0, 0, 0, .9), rgba(0, 0, 0, .25)), url("https://images.unsplash.com/photo-1515003197210-e0cd71810b5f?auto=format&fit=crop&w=2000&q=85") center/cover
+}
+
+.hero:after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 75% 50%, transparent, rgba(0, 0, 0, .5))
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 720px;
+  animation: heroIn 1s ease
+}
+
+.eyebrow {
+  font-size: 10px;
+  letter-spacing: 4px;
+  color: var(--gold);
+  margin-bottom: 23px
+}
+
+h1,
+h2,
+h3 {
+  font-family: "Cormorant Garamond", serif;
+  font-weight: 500
+}
+
+.hero h1 {
+  font-size: clamp(62px, 8vw, 115px);
+  line-height: .84
+}
+
+h1 span,
+h2 span {
+  color: var(--gold)
+}
+
+.hero-text {
+  max-width: 490px;
+  margin-top: 34px;
+  color: #ccc;
+  line-height: 1.8
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 14px;
+  margin-top: 38px
+}
+
+.btn {
+  display: inline-block;
+  padding: 15px 27px;
+  font-size: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  transition: .3s;
+  border: 1px solid transparent
+}
+
+.btn-gold {
+  background: var(--gold);
+  color: #090909;
+  border-color: var(--gold)
+}
+
+.btn-gold:hover {
+  background: transparent;
+  color: var(--gold)
+}
+
+.btn-outline {
+  border-color: rgba(255, 255, 255, .45)
+}
+
+.btn-outline:hover {
+  border-color: var(--gold);
+  color: var(--gold)
+}
+
+.scroll {
+  position: absolute;
+  z-index: 2;
+  bottom: 35px;
+  left: 9%;
+  font-size: 8px;
+  letter-spacing: 3px;
+  color: #aaa;
+  display: flex;
+  align-items: center;
+  gap: 14px
+}
+
+.scroll span {
+  display: block;
+  width: 55px;
+  height: 1px;
+  background: var(--gold)
+}
+
+.section {
+  padding: 130px 8%
+}
+
+.section-inner {
+  max-width: 1200px;
+  margin: auto
+}
+
+.intro {
+  text-align: center;
+  background: var(--dark)
+}
+
+.intro h2,
+.menu-section h2,
+.contact h2,
+.cta h2 {
+  font-size: clamp(48px, 5.5vw, 78px);
+  line-height: .95
+}
+
+.gold-line {
+  width: 60px;
+  height: 1px;
+  background: var(--gold);
+  margin: 34px auto
+}
+
+.intro-text {
+  max-width: 680px;
+  margin: auto;
+  color: var(--muted);
+  line-height: 1.9
+}
+
+.experience {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 650px
+}
+
+.experience.reverse .experience-image {
+  order: 2
+}
+
+.experience.reverse .experience-content {
+  order: 1
+}
+
+.experience-image {
+  min-height: 600px;
+  background-size: cover;
+  background-position: center
+}
+
+.food-image {
+  background-image: linear-gradient(rgba(0, 0, 0, .15), rgba(0, 0, 0, .4)), url("images/entrata.png")
+}
+
+.cocktail-image {
+  background-image: linear-gradient(rgba(0, 0, 0, .15), rgba(0, 0, 0, .4)), url("https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?auto=format&fit=crop&w=1400&q=85")
+}
+
+.experience-content {
+  padding: 10%;
+  background: #101010;
+  display: flex;
+  flex-direction: column;
+  justify-content: center
+}
+
+.experience-content h2 {
+  font-size: clamp(48px, 5vw, 72px);
+  line-height: .92;
+  margin-bottom: 28px
+}
+
+.experience-content p:not(.eyebrow) {
+  max-width: 470px;
+  color: var(--muted);
+  line-height: 1.9
+}
+
+.text-link {
+  margin-top: 32px;
+  color: var(--gold);
+  font-size: 10px;
+  letter-spacing: 3px
+}
+
+.text-link span {
+  font-size: 17px;
+  margin-left: 8px
+}
+
+.menu-section {
+  background: #0b0b0b;
+  text-align: center
+}
+
+.menu-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1px;
+  background: #292929;
+  margin-top: 65px
+}
+
+.menu-card {
+  text-align: left;
+  background: #111;
+  padding: 50px;
+  min-height: 230px;
+  transition: .35s
+}
+
+.menu-card:hover {
+  transform: translateY(-5px);
+  background: #171717
+}
+
+.menu-card span,
+.contact-card small {
+  color: var(--gold);
+  letter-spacing: 2px
+}
+
+.menu-card h3 {
+  font-size: 31px;
+  margin: 22px 0 13px
+}
+
+.menu-card p {
+  font-size: 13px;
+  color: #888;
+  line-height: 1.7
+}
+
+.menu-btn {
+  margin-top: 45px
+}
+
+.cta {
+  min-height: 600px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: linear-gradient(rgba(0, 0, 0, .62), rgba(0, 0, 0, .7)), url("https://images.unsplash.com/photo-1519671482749-fd09be7ccebf?auto=format&fit=crop&w=1800&q=85") center/cover
+}
+
+.cta .btn {
+  margin-top: 35px
+}
+
+.contact {
+  text-align: center;
+  background: #111
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  margin: 65px 0;
+  background: #292929
+}
+
+.contact-card {
+  background: #0d0d0d;
+  padding: 45px 25px;
+  min-height: 190px
+}
+
+.contact-card h3 {
+  font-size: 27px;
+  margin: 20px 0 12px
+}
+
+.contact-card p {
+  font-size: 13px;
+  color: #888;
+  line-height: 1.8
+}
+
+footer {
+  text-align: center;
+  padding: 60px 20px;
+  background: #080808;
+  border-top: 1px solid rgba(201, 164, 92, .15)
+}
+
+footer p {
+  margin-top: 25px;
+  color: #666;
+  font-size: 11px;
+  letter-spacing: 1px
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(35px);
+  transition: opacity .8s ease, transform .8s ease
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: none
+}
+
+@keyframes heroIn {
+  from {
+    opacity: 0;
+    transform: translateY(25px)
+  }
+
+  to {
+    opacity: 1;
+    transform: none
+  }
+}
+
+.menu-page {
+  background: #090909;
+  color: #f5f0e6;
+}
+
+.menu-hero {
+  min-height: 70vh;
+  padding: 160px 7% 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+
+  background:
+    linear-gradient(rgba(0, 0, 0, 0.72),
+      rgba(0, 0, 0, 0.88)),
+    url("https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1800&q=85");
+
+  background-size: cover;
+  background-position: center;
+}
+
+.menu-hero-content {
+  max-width: 750px;
+  position: relative;
+  z-index: 2;
+  animation: menuHeroAnimation 1s ease;
+}
+
+.menu-hero h1 {
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(65px, 9vw, 120px);
+  font-weight: 500;
+  line-height: 0.82;
+  margin: 0;
+}
+
+.menu-hero h1 span {
+  color: #c9a45c;
+}
+
+.menu-hero-content>p:last-child {
+  max-width: 520px;
+  margin: 35px auto 0;
+  color: #aaa;
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+
+/* CONTENITORE MENU */
+
+.restaurant-menu {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 90px 40px;
+}
+
+
+/* CATEGORIE */
+
+.menu-category {
+  padding: 75px 0;
+  border-bottom: 1px solid rgba(201, 164, 92, 0.2);
+}
+
+.menu-category:last-child {
+  border-bottom: none;
+}
+
+
+/* TITOLO CATEGORIA */
+
+.category-title {
+  display: grid;
+  grid-template-columns: 70px 1fr;
+  gap: 25px;
+  align-items: start;
+  margin-bottom: 55px;
+}
+
+.category-title>span {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 30px;
+  color: #c9a45c;
+}
+
+.category-title .eyebrow {
+  margin-bottom: 15px;
+}
+
+.category-title h2 {
+  margin: 0;
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(55px, 7vw, 82px);
+  font-weight: 500;
+  line-height: 0.8;
+  color: #f5f0e6;
+}
+
+
+/* PIATTI */
+
+.dishes {
+  margin-left: 95px;
+}
+
+.dish {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 40px;
+  padding: 28px 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  transition: 0.3s ease;
+}
+
+.dish:last-child {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.dish:hover {
+  padding-left: 10px;
+}
+
+.dish-info {
+  max-width: 750px;
+}
+
+.dish-info h3 {
+  margin: 0 0 8px;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 29px;
+  font-weight: 500;
+  color: #f5f0e6;
+  transition: 0.3s ease;
+}
+
+.dish:hover .dish-info h3 {
+  color: #c9a45c;
+}
+
+.dish-info p {
+  margin: 0;
+  color: #777;
+  font-family: "Montserrat", sans-serif;
+  font-size: 12px;
+  line-height: 1.7;
+}
+
+.price {
+  flex-shrink: 0;
+  padding-top: 3px;
+  color: #c9a45c;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 24px;
+  white-space: nowrap;
+}
+
+
+/* COCKTAIL */
+
+.cocktail-menu {
+  width: 100%;
+  margin-top: 70px;
+  padding: 100px 7%;
+
+  background:
+    linear-gradient(rgba(5, 5, 5, 0.88),
+      rgba(5, 5, 5, 0.95)),
+    url("https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?auto=format&fit=crop&w=1800&q=85");
+
+  background-size: cover;
+  background-position: center;
+}
+
+.cocktail-heading {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.cocktail-heading h2 {
+  margin: 0;
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(55px, 7vw, 85px);
+  font-weight: 500;
+}
+
+.cocktail-grid {
+  max-width: 1000px;
+  margin: 0 auto;
+
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+
+  gap: 1px;
+
+  background: rgba(201, 164, 92, 0.3);
+}
+
+.cocktail-card {
+  min-height: 230px;
+  padding: 45px;
+  background: rgba(12, 12, 12, 0.96);
+  transition: 0.35s ease;
+}
+
+.cocktail-card:hover {
+  background: #171717;
+}
+
+.cocktail-card>span {
+  color: #c9a45c;
+  font-family: "Montserrat", sans-serif;
+  font-size: 8px;
+  letter-spacing: 3px;
+}
+
+.cocktail-card h3 {
+  margin: 20px 0 8px;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 36px;
+  font-weight: 500;
+}
+
+.cocktail-card p {
+  margin: 0;
+  color: #777;
+  font-size: 12px;
+}
+
+.cocktail-card strong {
+  display: block;
+  margin-top: 25px;
+  color: #c9a45c;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 23px;
+  font-weight: 500;
+}
+
+
+/* NAVBAR */
+
+.menu-navbar .nav-menu a.active {
+  color: #c9a45c;
+}
+
+
+/* ANIMAZIONE */
+
+@keyframes menuHeroAnimation {
+
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+}
+
+
+@media(max-width:800px) {
+  .nav-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    padding: 25px;
+    display: none;
+    flex-direction: column;
+    gap: 22px;
+    background: #0b0b0b;
+    border-top: 1px solid rgba(201, 164, 92, .2)
+  }
+
+  .nav-menu.active {
+    display: flex
+  }
+
+  .menu-toggle {
+    display: block
+  }
+
+  .hero {
+    padding: 0 7%
+  }
+
+  .hero h1 {
+    font-size: 62px
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+    align-items: flex-start
+  }
+
+  .section {
+    padding: 90px 7%
+  }
+
+  .experience {
+    grid-template-columns: 1fr
+  }
+
+  .experience.reverse .experience-image,
+  .experience.reverse .experience-content {
+    order: initial
+  }
+
+  .experience-image {
+    min-height: 420px
+  }
+
+  .experience-content {
+    padding: 75px 8%
+  }
+
+  .menu-grid,
+  .contact-grid {
+    grid-template-columns: 1fr
+  }
+
+  .menu-card {
+    min-height: auto
+  }
+
+  .cta {
+    min-height: 500px;
+    padding: 60px 7%
+  }
+
+  .logo {
+    font-size: 27px
+  }
+
+  .menu-hero {
+    min-height: 60vh;
+    padding: 150px 7% 80px;
+  }
+
+  .menu-hero h1 {
+    font-size: 65px;
+  }
+
+  .restaurant-menu {
+    padding: 60px 7%;
+  }
+
+  .menu-category {
+    padding: 60px 0;
+  }
+
+  .category-title {
+    grid-template-columns: 45px 1fr;
+    gap: 15px;
+    margin-bottom: 40px;
+  }
+
+  .category-title>span {
+    font-size: 23px;
+  }
+
+  .category-title h2 {
+    font-size: 55px;
+  }
+
+  .dishes {
+    margin-left: 0;
+  }
+
+  .dish {
+    gap: 20px;
+  }
+
+  .dish-info h3 {
+    font-size: 25px;
+  }
+
+  .dish-info p {
+    font-size: 11px;
+  }
+
+  .price {
+    font-size: 21px;
+  }
+
+  .cocktail-menu {
+    padding: 80px 7%;
+  }
+
+  .cocktail-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .cocktail-card {
+    min-height: auto;
+    padding: 35px;
+  }
+}
+
+@media(max-width:480px) {
+  .hero h1 {
+    font-size: 53px
+  }
+
+  .hero-text {
+    font-size: 13px
+  }
+
+  .btn {
+    width: 100%;
+    text-align: center
+  }
+
+  .hero-buttons {
+    width: 100%
+  }
+
+  .menu-hero {
+    min-height: 55vh;
+  }
+
+  .menu-hero h1 {
+    font-size: 55px;
+  }
+
+  .menu-hero-content>p:last-child {
+    font-size: 12px;
+  }
+
+  .category-title {
+    grid-template-columns: 35px 1fr;
+    gap: 10px;
+  }
+
+  .category-title>span {
+    font-size: 20px;
+  }
+
+  .category-title h2 {
+    font-size: 48px;
+  }
+
+  .dish {
+    gap: 12px;
+  }
+
+  .dish-info h3 {
+    font-size: 22px;
+  }
+
+  .dish-info p {
+    font-size: 10px;
+  }
+
+  .price {
+    font-size: 19px;
+  }
+
+  .cocktail-heading h2 {
+    font-size: 55px;
+  }
+
+
+
+}
